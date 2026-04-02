@@ -1,8 +1,20 @@
+import { ChartsContainer } from "@/src/components/dashboard/ChartsContainer";
+import { SummaryCards } from "@/src/components/dashboard/SummaryCards";
+import { TransactionTable } from "@/src/components/transactions/TransactionTable";
+
+
+
 export default function Home() {
   return (
     <div className="space-y-6">
-      {/* We will build the Summary Cards, Charts, and Data Table in here next */}
-      <h3 className="text-lg font-medium text-gray-500">Dashboard content goes here...</h3>
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="text-2xl font-bold text-gray-700">Dashboard Overview</h2>
+      </div>
+      
+      <SummaryCards />
+      <ChartsContainer />
+      <TransactionTable />
+      {/* We will build the Data Table down here next */}
     </div>
   );
 }
