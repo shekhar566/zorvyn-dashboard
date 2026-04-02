@@ -36,7 +36,7 @@ A clean, responsive, and interactive financial dashboard built as a technical as
 Clone the repository and install dependencies:
 
 ```bash
-git clone [https://github.com/YOUR_GITHUB_USERNAME/zorvyn-dashboard.git](https://github.com/YOUR_GITHUB_USERNAME/zorvyn-dashboard.git)
+git clone https://github.com/shekhar566/zorvyn-dashboard.git
 cd zorvyn-dashboard
 npm install
 npm run dev
