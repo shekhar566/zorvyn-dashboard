@@ -36,13 +36,12 @@ export function Header() {
 
         {/* Polished Icons */}
         <div className="flex items-center space-x-5 border-l border-gray-200 pl-6">
-          <div className="relative cursor-pointer">
+          <div className="relative cursor-pointer" onClick={() => alert("Notifications center coming in v2.")}>
             <Bell className="w-5 h-5 text-gray-500 hover:text-gray-800 transition-colors" />
-            {/* Red Notification Ping */}
             <span className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full border border-white"></span>
           </div>
           
-          <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 font-bold text-xs border border-blue-200 cursor-pointer hover:bg-blue-200 transition-colors">
+          <div onClick={() => alert("User settings coming in v2.")} className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 font-bold text-xs border border-blue-200 cursor-pointer hover:bg-blue-200 transition-colors">
             SA
           </div>
         </div>

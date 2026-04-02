@@ -1,3 +1,4 @@
+"use client"
 import { LayoutDashboard, ArrowLeftRight, PieChart, Wallet } from "lucide-react";
 
 export function Sidebar() {
@@ -16,23 +17,29 @@ export function Sidebar() {
         </a>
         <a href="#" className="flex items-center px-4 py-3 hover:bg-gray-800 hover:text-white rounded-lg transition-colors">
           <ArrowLeftRight className="w-5 h-5 mr-3 text-gray-400" />
+          <button onClick={() => alert("Feature in development for v2.")} className="w-full flex items-center px-4 py-3 hover:bg-gray-800 hover:text-white rounded-lg transition-colors text-left">
+          <ArrowLeftRight className="w-5 h-5 mr-3 text-gray-400" />
           <span className="font-medium">Transactions</span>
+        </button>
         </a>
         <a href="#" className="flex items-center px-4 py-3 hover:bg-gray-800 hover:text-white rounded-lg transition-colors">
           <PieChart className="w-5 h-5 mr-3 text-gray-400" />
+          <button onClick={() => alert("Feature in development for v2.")} className="w-full flex items-center px-4 py-3 hover:bg-gray-800 hover:text-white rounded-lg transition-colors text-left">
+          <PieChart className="w-5 h-5 mr-3 text-gray-400" />
           <span className="font-medium">Insights</span>
+        </button>
         </a>
       </nav>
 
       {/* Polished User Profile Block */}
       <div className="p-4 border-t border-gray-800">
         <div className="flex items-center space-x-3 bg-gray-800 rounded-xl p-3 border border-gray-700 hover:bg-gray-700 transition-colors cursor-pointer">
-          <div className="w-9 h-9 rounded-full bg-blue-500 flex items-center justify-center font-bold text-white text-sm shadow-inner">
+        <div onClick={() => alert("User settings coming in v2.")} className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 font-bold text-xs border border-blue-200 cursor-pointer hover:bg-blue-200 transition-colors">
             SA
           </div>
           <div>
-            <p className="text-white font-medium text-sm leading-tight">Shekhar Anand</p>
-            <p className="text-gray-400 text-xs mt-0.5">Intern Assignment</p>
+            <p onClick={() => alert("User settings coming in v2.")} className="text-white font-medium text-sm leading-tight">Shekhar Anand</p>
+            <p onClick={() => alert("User settings coming in v2.")} className="text-gray-400 text-xs mt-0.5">Intern Assignment</p>
           </div>
         </div>
       </div>

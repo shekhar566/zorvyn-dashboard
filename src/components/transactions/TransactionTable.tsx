@@ -19,7 +19,6 @@ const { transactions, userRole, addTransaction, deleteTransaction } = useDashboa
     date: new Date().toISOString().split('T')[0]
   });
 
-  // 1. Filter Engine (Removed the strict date sort so new items stay at the top!)
   const filteredTransactions = useMemo(() => {
     return transactions.filter((tx) => {
       const matchesSearch = tx.description.toLowerCase().includes(searchTerm.toLowerCase()) || 
@@ -38,7 +37,6 @@ const { transactions, userRole, addTransaction, deleteTransaction } = useDashboa
       amount: Number(formData.amount),
       category: formData.category,
       type: formData.type,
-      // Add current time to the date so it processes correctly in charts
       date: `${formData.date}T${new Date().toISOString().split('T')[1]}` 
     });
     
@@ -75,7 +73,6 @@ const { transactions, userRole, addTransaction, deleteTransaction } = useDashboa
               placeholder="Search description or category..." 
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              // Added explicit text-gray-900 and placeholder contrast
               className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg text-sm text-gray-900 placeholder:text-gray-500 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -84,7 +81,6 @@ const { transactions, userRole, addTransaction, deleteTransaction } = useDashboa
             <select 
               value={filterType}
               onChange={(e) => setFilterType(e.target.value as any)}
-              // Added explicit text-gray-900
               className="pl-10 pr-8 py-2 border border-gray-200 rounded-lg text-sm text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none"
             >
               <option value="all">All Types</option>
@@ -104,7 +100,6 @@ const { transactions, userRole, addTransaction, deleteTransaction } = useDashboa
               <th className="px-6 py-3">Category</th>
               <th className="px-6 py-3">Amount</th>
               <th className="px-6 py-3">Type</th>
-              {/* Added an Actions column header */}
               <th className="px-6 py-3 text-right"></th>
             </tr>
           </thead>
@@ -112,7 +107,7 @@ const { transactions, userRole, addTransaction, deleteTransaction } = useDashboa
             {filteredTransactions.length > 0 ? (
               filteredTransactions.map((tx) => (
                 <tr key={tx.id} className="hover:bg-gray-50 transition-colors">
-                  <td className="px-6 py-4 whitespace-nowrap">{new Date(tx.date).toLocaleDateString()}</td>
+<td suppressHydrationWarning className="px-6 py-4 whitespace-nowrap">{new Date(tx.date).toLocaleDateString()}</td>
                   <td className="px-6 py-4 font-medium text-gray-900">{tx.description}</td>
                   <td className="px-6 py-4">
                     <span className="px-2.5 py-1 bg-gray-100 text-gray-600 rounded-md text-xs font-medium">
@@ -167,7 +162,6 @@ const { transactions, userRole, addTransaction, deleteTransaction } = useDashboa
             <form onSubmit={handleSubmit} className="p-6 space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-900 mb-1">Description</label>
-                {/* Added high contrast classes to inputs */}
                 <input required type="text" value={formData.description} onChange={e => setFormData({...formData, description: e.target.value})} className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900 placeholder:text-gray-500 bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="e.g., Client Payment" />
               </div>
               

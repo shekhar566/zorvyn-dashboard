@@ -8,13 +8,12 @@ export default function Home() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-bold text-gray-700">Dashboard Overview</h2>
+        <h2 className="text-2xl font-bold text-gray-400">Dashboard Overview</h2>
       </div>
       
       <SummaryCards />
       <ChartsContainer />
       <TransactionTable />
-      {/* We will build the Data Table down here next */}
     </div>
   );
 }

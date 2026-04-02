@@ -7,7 +7,6 @@ import {
   PieChart, Pie, Cell, Legend
 } from 'recharts';
 
-// Expanded premium color palette so categories don't repeat colors quickly
 const COLORS = [
   '#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', 
   '#ec4899', '#06b6d4', '#f97316', '#64748b', '#84cc16'
@@ -75,7 +74,7 @@ export function ChartsContainer() {
               <Pie
                 data={pieChartData}
                 cx="50%"
-                cy="42%" /* Shifted the donut up to give the legend breathing room */
+                cy="42%" 
                 innerRadius={60}
                 outerRadius={80}
                 paddingAngle={5}
@@ -89,7 +88,7 @@ export function ChartsContainer() {
               <Legend 
                 verticalAlign="bottom" 
                 iconType="circle"
-                wrapperStyle={{ fontSize: '12px', paddingTop: '15px' }} /* Removed strict height */
+                wrapperStyle={{ fontSize: '12px', paddingTop: '15px' }} 
               />
             </PieChart>
           </ResponsiveContainer>

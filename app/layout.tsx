@@ -22,10 +22,8 @@ export default function RootLayout({
       <body className={`${inter.className} bg-gray-50 text-gray-900 flex h-screen overflow-hidden`}>
         <DashboardProvider>
           <Sidebar />
-          {/* Main Content Wrapper - offset by the 64w Sidebar */}
           <div className="flex-1 flex flex-col ml-64 overflow-hidden">
             <Header />
-            {/* Scrollable Page Content */}
             <main className="flex-1 overflow-y-auto p-8">
               {children}
             </main>
