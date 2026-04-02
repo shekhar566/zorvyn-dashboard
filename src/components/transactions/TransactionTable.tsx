@@ -107,7 +107,7 @@ const { transactions, userRole, addTransaction, deleteTransaction } = useDashboa
             {filteredTransactions.length > 0 ? (
               filteredTransactions.map((tx) => (
                 <tr key={tx.id} className="hover:bg-gray-50 transition-colors">
-<td suppressHydrationWarning className="px-6 py-4 whitespace-nowrap">{new Date(tx.date).toLocaleDateString()}</td>
+                <td suppressHydrationWarning className="px-6 py-4 whitespace-nowrap">{new Date(tx.date).toLocaleDateString()}</td>
                   <td className="px-6 py-4 font-medium text-gray-900">{tx.description}</td>
                   <td className="px-6 py-4">
                     <span className="px-2.5 py-1 bg-gray-100 text-gray-600 rounded-md text-xs font-medium">
