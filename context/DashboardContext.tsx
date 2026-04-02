@@ -8,6 +8,7 @@ interface DashboardContextType {
   userRole: 'viewer' | 'admin';
   toggleRole: () => void;
   addTransaction: (tx: Omit<Transaction, 'id'>) => void;
+  deleteTransaction: (id: string) => void; // ADDED THIS
 }
 
 const DashboardContext = createContext<DashboardContextType | undefined>(undefined);
@@ -28,8 +29,13 @@ export const DashboardProvider = ({ children }: { children: ReactNode }) => {
     setTransactions([transaction, ...transactions]);
   };
 
+  // ADDED THIS FUNCTION
+  const deleteTransaction = (id: string) => {
+    setTransactions((prev) => prev.filter((tx) => tx.id !== id));
+  };
+
   return (
-    <DashboardContext.Provider value={{ transactions, userRole, toggleRole, addTransaction }}>
+    <DashboardContext.Provider value={{ transactions, userRole, toggleRole, addTransaction, deleteTransaction }}>
       {children}
     </DashboardContext.Provider>
   );

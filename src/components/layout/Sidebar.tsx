@@ -9,24 +9,31 @@ export function Sidebar() {
       </div>
       
       <nav className="flex-1 py-6 px-4 space-y-2">
-        <a href="#" className="flex items-center px-4 py-3 bg-gray-800 text-white rounded-lg transition-colors">
-          <LayoutDashboard className="w-5 h-5 mr-3 text-blue-500" />
+        {/* Active State applied here */}
+        <a href="#" className="flex items-center px-4 py-3 bg-blue-600 text-white rounded-lg shadow-md transition-colors">
+          <LayoutDashboard className="w-5 h-5 mr-3 text-white" />
           <span className="font-medium">Dashboard</span>
         </a>
         <a href="#" className="flex items-center px-4 py-3 hover:bg-gray-800 hover:text-white rounded-lg transition-colors">
-          <ArrowLeftRight className="w-5 h-5 mr-3" />
+          <ArrowLeftRight className="w-5 h-5 mr-3 text-gray-400" />
           <span className="font-medium">Transactions</span>
         </a>
         <a href="#" className="flex items-center px-4 py-3 hover:bg-gray-800 hover:text-white rounded-lg transition-colors">
-          <PieChart className="w-5 h-5 mr-3" />
+          <PieChart className="w-5 h-5 mr-3 text-gray-400" />
           <span className="font-medium">Insights</span>
         </a>
       </nav>
 
+      {/* Polished User Profile Block */}
       <div className="p-4 border-t border-gray-800">
-        <div className="bg-gray-800 rounded-lg p-4 text-sm">
-          <p className="text-gray-400 mb-1">Intern Assignment</p>
-          <p className="text-white font-medium">Shekhar Anand</p>
+        <div className="flex items-center space-x-3 bg-gray-800 rounded-xl p-3 border border-gray-700 hover:bg-gray-700 transition-colors cursor-pointer">
+          <div className="w-9 h-9 rounded-full bg-blue-500 flex items-center justify-center font-bold text-white text-sm shadow-inner">
+            SA
+          </div>
+          <div>
+            <p className="text-white font-medium text-sm leading-tight">Shekhar Anand</p>
+            <p className="text-gray-400 text-xs mt-0.5">Intern Assignment</p>
+          </div>
         </div>
       </div>
     </aside>

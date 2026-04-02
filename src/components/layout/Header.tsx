@@ -1,7 +1,7 @@
 "use client";
 
 import { useDashboard } from "@/context/DashboardContext";
-import { Bell, User, ShieldAlert, Eye } from "lucide-react";
+import { Bell, ShieldAlert, Eye } from "lucide-react";
 
 export function Header() {
   const { userRole, toggleRole } = useDashboard();
@@ -13,7 +13,6 @@ export function Header() {
       </div>
 
       <div className="flex items-center space-x-6">
-        {/* The Role Toggle */}
         <div className="flex items-center bg-gray-100 p-1 rounded-lg border border-gray-200">
           <button
             onClick={() => userRole !== 'viewer' && toggleRole()}
@@ -35,11 +34,16 @@ export function Header() {
           </button>
         </div>
 
-        {/* Fake User Icons for Polish */}
-        <div className="flex items-center space-x-4 border-l border-gray-200 pl-6 text-gray-500">
-          <Bell className="w-5 h-5 cursor-pointer hover:text-gray-700" />
-          <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600">
-            <User className="w-5 h-5" />
+        {/* Polished Icons */}
+        <div className="flex items-center space-x-5 border-l border-gray-200 pl-6">
+          <div className="relative cursor-pointer">
+            <Bell className="w-5 h-5 text-gray-500 hover:text-gray-800 transition-colors" />
+            {/* Red Notification Ping */}
+            <span className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full border border-white"></span>
+          </div>
+          
+          <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 font-bold text-xs border border-blue-200 cursor-pointer hover:bg-blue-200 transition-colors">
+            SA
           </div>
         </div>
       </div>

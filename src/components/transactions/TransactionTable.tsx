@@ -2,10 +2,10 @@
 
 import { useDashboard } from "@/context/DashboardContext";
 import { useState, useMemo } from "react";
-import { Search, Plus, X, Filter } from "lucide-react";
+import { Search, Plus, X, Filter, Trash2 } from "lucide-react";
 
 export function TransactionTable() {
-  const { transactions, userRole, addTransaction } = useDashboard();
+const { transactions, userRole, addTransaction, deleteTransaction } = useDashboard();
   
   const [searchTerm, setSearchTerm] = useState("");
   const [filterType, setFilterType] = useState<'all' | 'income' | 'expense'>('all');
@@ -103,7 +103,9 @@ export function TransactionTable() {
               <th className="px-6 py-3">Description</th>
               <th className="px-6 py-3">Category</th>
               <th className="px-6 py-3">Amount</th>
-              <th className="px-6 py-3 rounded-tr-lg">Type</th>
+              <th className="px-6 py-3">Type</th>
+              {/* Added an Actions column header */}
+              <th className="px-6 py-3 text-right"></th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-100">
@@ -127,11 +129,23 @@ export function TransactionTable() {
                       {tx.type.charAt(0).toUpperCase() + tx.type.slice(1)}
                     </span>
                   </td>
+                  {/* The Delete Button Column (RBAC Protected) */}
+                  <td className="px-6 py-4 text-right">
+                    {userRole === 'admin' && (
+                      <button 
+                        onClick={() => deleteTransaction(tx.id)}
+                        className="text-gray-400 hover:text-red-500 transition-colors p-1 rounded-md hover:bg-red-50"
+                        title="Delete Transaction"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    )}
+                  </td>
                 </tr>
               ))
             ) : (
               <tr>
-                <td colSpan={5} className="px-6 py-12 text-center text-gray-500">
+                <td colSpan={6} className="px-6 py-12 text-center text-gray-500">
                   No transactions found matching your filters.
                 </td>
               </tr>
